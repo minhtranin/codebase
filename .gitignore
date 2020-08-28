@@ -1,0 +1,12 @@
+.awcache
+.cache-loader
+.gcloudignore
+.vscode
+.env.*local
+/build
+dist
+node_modules*
+npm-debug.log
+package-lock.json
+tmp
+code_ideas

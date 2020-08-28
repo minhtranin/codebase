@@ -1,0 +1,9 @@
+endpoint: http://${env:PRISMA_HOST}:4466/veewme/${env:PRISMA_STAGE}
+datamodel: src/lib/graphql/datamodel.prisma
+generate:
+  - generator: typescript-client
+    output: build/gen/prisma/
+  - generator: graphql-schema
+    output: build/gen/prisma/prisma.graphql
+seed:
+  import: src/lib/graphql/seed.graphql

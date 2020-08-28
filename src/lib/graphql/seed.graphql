@@ -1,0 +1,299 @@
+mutation {
+  testDaniel1: createTestDaniel (data: {
+    name: "XYZ"
+  }) {
+    id
+  }
+
+  testDaniel2: createTestDaniel (data: {
+    name: "ABC"
+  }) {
+    id
+  }
+
+  testTable1: createTestTable (data: {
+    name: "test@testtable.pl"
+  }) { id }
+
+  testTable2: createTestTable (data: {
+    name: "table@testtable.pl"
+  }) { id }
+
+  developer: createDeveloper(data: {
+    user: { create: {
+      email: "developer@2.veewme.com"
+      firstName: "Joe"
+      lastName: "Developer"
+      password: "password"
+      role: DEVELOPER
+    }}
+  }) {
+    id
+  }
+
+  admin: createAdmin(data: {
+    user: { create: {
+      email: "admin@2.veewme.com"
+      firstName: "Joe"
+      lastName: "Admin"
+      password: "password"
+      role: ADMIN
+    }}
+  }) {
+    id
+  }
+
+  photo: createPhotographer(data: {
+    city: "New York"
+    phone: "123"
+    region: { create: { label: "some region" } }
+    user: { create: {
+      email: "photographer@2.veewme.com"
+      firstName: "Joe"
+      lastName: "Photo"
+      password: "password"
+      role: PHOTOGRAPHER
+    }}
+  }) {
+    id
+  }
+
+  affiliate1: createAffiliate(data: {
+    agents: { create: [] }
+    areasCovered: "area1"
+    brokerages: { create: [] }
+    city: "Dallas"
+    companyName: "Affiliate1"
+    country: US
+    defaultColorScheme: { create: { b: 62 , g: 204 , r: 159 } }
+    emailOffice: "affiliate1@test.com"
+    featuredPropertySites: { create: [] }
+    mediaExports: { create: [
+      {
+        height: 200
+        name: "Media Export 1"
+        resolution: 75
+        width: 200
+      }, {
+        height: 200
+        name: "Media Export 2"
+        resolution: 150
+        width: 500
+      }
+    ]}
+    orders: { create: [] }
+    permissionsAndSettings: { create: {
+      allowClientBillingAccess: true
+      allowClientMediaUpload: true
+      allowClientOrders: false
+      orderConfirmationEmailRider: false
+      sendWelcomeEmailsToNewClients: true
+    }}
+    phone: "55511111"
+    phoneOffice: "555555555"
+    processors: { create: [
+      {
+        country: US
+        phone: "55511111"
+        regionId: { create: { label: "Processor's region" } }
+        state: "TX"
+        street: "Main St."
+        user: { create: {
+          email: "processor@2.veewme.com"
+          firstName: "Joe"
+          lastName: "Processor"
+          password: "password"
+          role: PROCESSOR
+        }}
+        website: "www.login-test.com"
+        zip: "77777"
+      }
+    ]}
+    regions: { create: [
+      { label: "Default Region" },
+      { label: "Second Region" }
+    ]}
+    state: TX
+    status: { create: {
+      activityStatus: ACTIVE
+      confirmed: true
+      type: BASIC
+    }}
+    street: "Main St."
+    tourColor: { create: { b: 255 , g: 166 , r: 61 } }
+    usefulLinks: { create: {
+      propertySiteLink: "www.test.com"
+      loginLink: "www.login-test.com"
+      signupLink: "www.signup-test.com"
+    }}
+    user: { create: {
+      email: "affiliate1@2.veewme.com"
+      firstName: "XYZ"
+      lastName: "ABC"
+      password: "password"
+      role: AFFILIATE
+    }}
+    website: "www.test.com"
+    whiteLabel: { create: {
+      customDomain: ""
+      enabled: false
+    }}
+    zip: "77777"
+  }) {
+    id
+  }
+
+  agent1: createAgent(data: {
+    city: "String"
+    country: US
+    defaultColorScheme: { create: { a: 1, b: 62, g: 204, r: 159 }}
+    orders: { create: [] }
+    phone: "555555555"
+    flyerLayout: FEATURED1
+    state: AZ
+    street: "String"
+    user: { create: {
+      email: "agent1@2.veewme.com"
+      firstName: "XYZ"
+      lastName: "ABC"
+      password: "password"
+      role: AGENT
+    }}
+    zip: "77777"
+  }) {
+    id
+  }
+
+  order1: createOrder(data: {
+    active: true
+    address: "1600 Pennsylvania Avenue NW, Washington DC"
+    cost: "123"
+    thumb: "/public/static/img/house1.png"
+    date: "04/23/2018"
+    sqfeet: true
+    surface: 1
+    beds: 1
+    baths: 1
+    price: "123"
+    MLS: "12345678"
+    agent: "Some agent"
+    agentEmail: "agent@agents.com"
+    agentPin: false
+    broker: "Some broker"
+    officeTel: "(555) 123123"
+    mobileTel: "(555) 1000101"
+    images: 3
+    web: "http://google.com"
+    services: {
+      create: {
+        date: "04/25/18"
+        category: {
+          create: {
+            color: {
+              create: {
+                a: 1
+                b: 0
+                g: 0
+                r: 255
+              }
+            }
+            icon: Photo
+            label: "Some category"
+          }
+        }
+        name: "Some service"
+        photographer: {
+          create: {
+            activatable: false
+            city: "New York"
+            phone: "123"
+            region: { create: { label: "some region" } }
+            user: { create: {
+              email: "orderPhotographer1@veewme.com"
+              firstName: "Test"
+              lastName: "Photographer"
+              password: "password"
+              role: PHOTOGRAPHER
+            }}
+            schedulable: true
+          }
+        }
+        status: Todo
+        time: "10:30am"
+      }
+    }
+    status: Active
+  }) {
+    id
+  }
+
+  order2: createOrder(data: {
+    active: true
+    address: "350 Fifth Avenue New York, NY 10118"
+    cost: "123"
+    thumb: "/public/static/img/house2.png"
+    date: "04/23/2018"
+    sqfeet: false
+    surface: 100
+    beds: 0
+    baths: 2
+    price: "123"
+    MLS: "12345678"
+    agent: "Some agent"
+    agentEmail: "agent@agents.com"
+    agentPin: false
+    broker: "Some broker"
+    officeTel: "(555) 123123"
+    mobileTel: "(555) 1000101"
+    images: 3
+    web: "http://google.com"
+    services: {
+      create: {
+        date: "04/25/19"
+        category: {
+          create: {
+            color: {
+              create: {
+                a: 1
+                b: 0
+                g: 0
+                r: 255
+              }
+            }
+            icon: Photo
+            label: "Some category"
+          }
+        }
+        name: "Some service"
+        photographer: {
+          create: {
+            activatable: false
+            city: "New York"
+            phone: "123"
+            region: { create: { label: "some region" } }
+            user: { create: {
+              email: "orderPhotographer2@veewme.com"
+              firstName: "Test"
+              lastName: "Photographer"
+              password: "password"
+              role: PHOTOGRAPHER
+            }}
+            schedulable: true
+          }
+        }
+        status: Message
+        time: "10:30am"
+      }
+    }
+    status: Active
+  }) {
+    id
+  }
+
+  demoImages: createDemoImages(data: {
+    images: { create: [] }
+    cropImages: { create: [] }
+  }) {
+    id
+  }
+}

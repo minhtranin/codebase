@@ -1,0 +1,466 @@
+# import * from "../../../build/gen/prisma/prisma.graphql"
+
+input DemoImagesUpdateInput {
+  images: [Upload!]!
+  cropImages: [Upload!]!
+}
+
+type Account {
+  accountId: Int!
+  firstName: String!
+  lastName: String!
+  role: Role!
+}
+
+input PhotoPresetInput {
+  id: Int
+  height: Int!
+  name: String!
+  resolution: Int!
+  width: Int!
+}
+
+input UsefulLinksCreateInput {
+  proeprtySiteLink: String!
+  loginLink: String!
+  signupLink: String!
+}
+
+input UserCreateInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String
+}
+
+input UserSignupInput {
+  id: Int
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+}
+
+input AffiliateCreateInput {
+  city: String!
+  companyName: String!
+  country: Country!
+  phone: String!
+  state: State!
+  street: String!
+  user: UserSignupInput!
+  website: String
+  zip: String!
+}
+
+input RegionUpdateInput {
+  delete: Boolean
+  label: String!
+  id: Int
+}
+
+input AffiliateUpdateInput {
+  areasCovered: String
+  city: String
+  companyName: String
+  country: Country
+  defaultColorScheme: ColorUpdateDataInput
+  description: Json
+  emailOffice: String
+  featuredPropertySites: [Int!]
+  mediaExports: [PhotoPresetInput!]
+  permissionsAndSettings: AffiliateSettingsUpdateDataInput
+  phone: String
+  phoneOffice: String
+  regions: [RegionUpdateInput!]
+  state: State
+  status: AffiliateStatusUpdateDataInput
+  street: String
+  usefulLinks: UsefulLinksUpdateDataInput
+  user: UserUpdateDataInput
+  tourColor: ColorUpdateDataInput
+  website: String
+  whiteLabel: WhiteLabelUpdateDataInput
+  zip: String
+}
+
+input WhereIdUniqueInput {
+  id: Int!
+}
+
+input AgentCreateInput {
+  affiliateId: Int
+  agentMLSid: String
+  bio: Json
+  brokerageId: Int
+  city: String
+  companyPay: Boolean
+  country: Country
+  defaultColorScheme: ColorCreateInput
+  designations: String
+  displayAgentCompanyLogoOnTopOfEachTour: Boolean
+  emailCC: String
+  emailCCOnorderCompleted: Boolean
+  emailCCOnorderPlaced: Boolean
+  emailOffice: String
+  flyerDisclaimer: String
+  flyerLayout: FlyerLayoutName
+  hideAnimateNavigationBar: Boolean
+  hideFlyerFromPropertySiteTour: Boolean
+  internalNote: Json
+  newTourOrder: Boolean
+  officeAdmin: Boolean
+  others: String
+  phone: String!
+  phoneAlternate: String
+  phoneMobile: String
+  profilePicture: Upload
+  profileUrl: String
+  regionId: Int
+  removeExternalLinksFromUnbrandedTourFooter: Boolean
+  removePhotographerBrandingFromBrandedTour: Boolean
+  removePhotographerBrandingFromUnbrandedTour: Boolean
+  removePropertyAddressFromUnbrandedTours: Boolean
+  showPatternOverlayOnSlideShowAndVideoOverviewTour: Boolean
+  showViewAdditionalPropertiesButtonOnTours: Boolean
+  specialPricing: Boolean
+  state: State
+  status: ActivityStatus
+  street: String
+  title: String
+  tourActivated: Boolean
+  user: UserCreateInput!
+  website: String
+  zip: String
+}
+
+input AgentSignupInput {
+  phone: String!
+  user: UserSignupInput!
+  website: String
+}
+
+input AgentUpdateInput {
+  affiliateId: Int
+  agentMLSid: String
+  bio: Json
+  brokerageId: Int
+  city: String
+  companyPay: Boolean
+  country: Country
+  defaultColorScheme: ColorUpdateDataInput
+  designations: String
+  displayAgentCompanyLogoOnTopOfEachTour: Boolean
+  emailCC: String
+  emailCCOnorderCompleted: Boolean
+  emailCCOnorderPlaced: Boolean
+  emailOffice: String
+  flyerDisclaimer: String
+  flyerLayout: FlyerLayoutName
+  hideAnimateNavigationBar: Boolean
+  hideFlyerFromPropertySiteTour: Boolean
+  internalNote: Json
+  newTourOrder: Boolean
+  officeAdmin: Boolean
+  others: String
+  phone: String
+  phoneAlternate: String
+  phoneMobile: String
+  profilePicture: Upload
+  profileUrl: String
+  regionId: Int
+  removeExternalLinksFromUnbrandedTourFooter: Boolean
+  removePhotographerBrandingFromBrandedTour: Boolean
+  removePhotographerBrandingFromUnbrandedTour: Boolean
+  removePropertyAddressFromUnbrandedTours: Boolean
+  showPatternOverlayOnSlideShowAndVideoOverviewTour: Boolean
+  showViewAdditionalPropertiesButtonOnTours: Boolean
+  specialPricing: Boolean
+  state: State
+  status: ActivityStatus
+  street: String
+  title: String
+  tourActivated: Boolean
+  user: UserUpdateDataInput
+  website: String
+  zip: String
+}
+
+input EnabledPhotoPresetCreateInput {
+  enabled: Boolean!
+  photoPresetId: Int!
+  downloadTrigger: PhotoDownloadTriggers
+}
+
+input EnabledPhotoPresetUpdateInput {
+  id: Int
+  enabled: Boolean
+  photoPresetId: Int
+  downloadTrigger: PhotoDownloadTriggers
+}
+
+input BrokerageCreateInput {
+  brokerSubsidy: Boolean
+  city: String!
+  companyName: String!
+  companyPay: Boolean
+  country: Country!
+  defaultColorScheme: ColorCreateInput!
+  discount: String
+  displayAgentCompanyLogoOnTopOfEachTour: Boolean
+  emailOffice: String
+  flyerDisclaimer: String
+  flyerLayout: FlyerLayoutName
+  hideAnimateNavigationBar: Boolean
+  hideFlyerFromPropertySiteTour: Boolean
+  owner: Int
+  phone: String!
+  photoDownloadPresets: [EnabledPhotoPresetCreateInput!]!
+  propertySiteMediaStyle: PropertySiteMediaStyles
+  regionId: Int!
+  removeExternalLinksFromUnbrandedTourFooter: Boolean
+  removePhotographerBrandingFromBrandedTour: Boolean
+  removePhotographerBrandingFromUnbrandedTour: Boolean
+  removePropertyAddressFromUnbrandedTours: Boolean
+  showPatternOverlayOnSlideShowAndVideoOverviewTour: Boolean
+  showViewAdditionalPropertiesButtonOnTours: Boolean
+  specialPricing: Boolean
+  state: State!
+  street: String!
+  website: String
+  zip: String!
+}
+
+input BrokerageUpdateInput {
+  brokerSubsidy: Boolean
+  city: String
+  companyName: String
+  companyPay: Boolean
+  country: Country
+  defaultColorScheme: ColorUpdateDataInput
+  discount: String
+  displayAgentCompanyLogoOnTopOfEachTour: Boolean
+  emailOffice: String
+  flyerDisclaimer: String
+  flyerLayout: FlyerLayoutName
+  hideAnimateNavigationBar: Boolean
+  hideFlyerFromPropertySiteTour: Boolean
+  phone: String
+  photoDownloadPresets: [EnabledPhotoPresetUpdateInput!]
+  propertySiteMediaStyle: PropertySiteMediaStyles
+  regionId: Int!
+  removeExternalLinksFromUnbrandedTourFooter: Boolean
+  removePhotographerBrandingFromBrandedTour: Boolean
+  removePhotographerBrandingFromUnbrandedTour: Boolean
+  removePropertyAddressFromUnbrandedTours: Boolean
+  showPatternOverlayOnSlideShowAndVideoOverviewTour: Boolean
+  showViewAdditionalPropertiesButtonOnTours: Boolean
+  specialPricing: Boolean
+  status: ActivityStatus
+  state: State
+  street: String
+  website: String
+  zip: String
+}
+
+input OfficeCreateInput {
+  brokerageId: Int!
+  city: String!
+  country: Country!
+  email: String
+  ownerId: Int!
+  phone: String
+  photoDownloadPresets:  [EnabledPhotoPresetCreateInput!]!
+  regionId: Int!
+  state: State!
+  street: String!
+  website: String
+  zip: String!
+}
+
+input OfficeUpdateInput {
+  brokerageId: Int
+  city: String
+  country: Country
+  email: String
+  ownerId: Int
+  photoDownloadPresets: [EnabledPhotoPresetUpdateInput!]
+  phone: String
+  regionId: Int
+  state: State
+  street: String
+  website: String
+  zip: String
+}
+
+input TourBannerCreateInput {
+  color: ColorCreateInput!
+  label: String!
+  blackText: Boolean
+}
+
+input TourBannerUpdateInput {
+  color: ColorUpdateDataInput!
+  label: String!
+  blackText: Boolean
+}
+
+input ToggleActivityStatusInput {
+  status: ActivityStatus!
+}
+
+scalar Upload
+
+input CheckWhiteLabelInput {
+  id: Int!
+  cname: String!
+}
+
+input ProcessorCreateInput {
+  activatable: Boolean
+  affiliateId: Int
+  city: String
+  country: Country
+  enableServiceDone: Boolean
+  internalNote: Json
+  phone: String
+  regionId: Int
+  schedulable: Boolean
+  state: String
+  street: String
+  user: UserCreateInput!
+  website: String
+  zip: String
+}
+
+input ProcessorUpdateInput {
+  activatable: Boolean
+  affiliateId: Int
+  city: String
+  country: Country
+  enableServiceDone: Boolean
+  internalNote: Json
+  phone: String
+  regionId: Int
+  schedulable: Boolean
+  state: String
+  street: String
+  user: UserUpdateInput
+  website: String
+  zip: String
+}
+
+type Photographer {
+  id: Int!
+  city: String
+  country: Country
+  activatable: Boolean!
+  phone: String!
+  region: Region
+  regionId: Int
+  schedulable: Boolean!
+  state: State
+  street: String
+  user: User!
+  thumb: String
+  website: String
+  zip: String
+}
+
+type Processor {
+  id: Int!
+  activatable: Boolean!
+  affiliate: Affiliate!
+  affiliateId: Int!
+  city: String
+  country: Country
+  enableServiceDone: Boolean!
+  internalNote: Json
+  phone: String
+  region: Region!
+  regionId: Int!
+  schedulable: Boolean!
+  street: String
+  state: String
+  user: User!
+  website: String
+  zip: String
+}
+
+type Mutation {
+  checkWhiteLabel(data: CheckWhiteLabelInput!): String!
+  createAffiliate(data: AffiliateCreateInput!): Affiliate!
+  createAgent(data: AgentCreateInput!): Agent!
+  createBrokerage(data: BrokerageCreateInput!): Brokerage!
+  createDemoThing(data: DemoThingCreateInput!): DemoThing!
+  createOffice(data: OfficeCreateInput!): Office!
+  createService(data: ServiceCreateInput!): Service!
+  createTourBanner(data: TourBannerCreateInput!): TourBanner!
+  createProcessor(data: ProcessorCreateInput!): Processor!
+  deleteAffiliate(where: WhereIdUniqueInput!): Affiliate!
+  deleteAgent(where: WhereIdUniqueInput!): Agent!
+  deleteBrokerage(where: WhereIdUniqueInput!): Brokerage!
+  deleteOffice(data: WhereIdUniqueInput!): Office!
+  deleteTourBanner(where: WhereIdUniqueInput): TourBanner!
+  deleteProcessor(where: WhereIdUniqueInput!): Processor!
+  demoUpload(data: Upload!): String!
+  generateFauxVideo(data: GenerateFauxVideoInput!): Video!
+  logIn(data: LogInInput!): User!
+  logOut(noargs: Boolean!): Boolean
+  signUp(data: SignUpInput!): User!
+  signupAgent(data: AgentSignupInput!): Agent!
+  updateAffiliate(data: AffiliateUpdateInput!, where: WhereIdUniqueInput!): Affiliate!
+  updateAgent(data: AgentUpdateInput!, where: WhereIdUniqueInput!): Agent!
+  updateBrokerage(data: BrokerageUpdateInput!, where: Int!): Brokerage!
+  addDemoImages(data: DemoImagesUpdateInput!, where: WhereIdUniqueInput!): DemoImages
+  updateOffice(data: OfficeUpdateInput!, where: WhereIdUniqueInput!): Office
+  updateTourBanner(data: TourBannerUpdateInput!, where: WhereIdUniqueInput!): TourBanner!
+  updateProcessor(data: ProcessorUpdateInput!, where: WhereIdUniqueInput!): Processor!
+  toggleBrokerageAcitivityStatus(data: ToggleActivityStatusInput!, where: Int!): Brokerage!
+}
+
+type Query {
+  admin(where: WhereIdUniqueInput!): Admin!
+  admins(where: AdminWhereInput): [Admin!]!
+  affiliate(where: WhereIdUniqueInput!): Affiliate!
+  affiliates(where: AffiliateWhereInput, orderBy: AffiliateOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Affiliate]!
+  agent(where: WhereIdUniqueInput!): Agent!
+  agents(where: AgentWhereInput!): [Agent!]!
+  brokerage(where: WhereIdUniqueInput!): Brokerage!
+  brokerages(where: BrokerageWhereInput, orderBy: BrokerageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Brokerage]!
+  demoImages(where: WhereIdUniqueInput!): DemoImages
+  demoThings(where: DemoThingWhereInput, orderBy: DemoThingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [DemoThing]!
+  developer(where: WhereIdUniqueInput!): Developer!
+  developers(where: DeveloperWhereInput!): [Developer!]!
+  me: Account!
+  office(where: WhereIdUniqueInput!): Office
+  offices(where: OfficeWhereInput, orderBy: OfficeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Office]!
+  orders(where: OrderWhereInput, orderBy: OrderOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Order]!
+  pendingOrders(where: PendingOrderWhereInput, orderBy: PendingOrderOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PendingOrder]!
+  photographer(where: WhereIdUniqueInput!, orderBy: PhotographerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): Photographer!
+  photographers(where: PhotographerWhereInput, orderBy: PhotographerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Photographer!]!
+  processor(where: WhereIdUniqueInput!): Processor!
+  processors(where: ProcessorWhereInput): [Processor!]!
+  serviceCategories(where: ServiceCategoryWhereInput, orderBy: ServiceCategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ServiceCategory]!
+  services(where: ServiceWhereInput, orderBy: ServiceOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Service]!
+  tourBanner(where: WhereIdUniqueInput!): TourBanner!
+  tourBanners(where: TourBannerWhereInput, orderBy: TourBannerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TourBanner]!
+  videos(where: VideoWhereInput, orderBy: VideoOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Video]!
+}
+
+input GenerateFauxVideoInput {
+  title: String
+}
+
+input SignUpInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  role: Role!
+}
+
+input LogInInput {
+  email: String!
+  password: String!
+}
